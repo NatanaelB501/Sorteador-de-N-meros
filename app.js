@@ -24,8 +24,9 @@ function sortear(){
     }
     // aqui vai chamar a funçao pra exibir a mensagem correta na tela dependendo a quantidade de numeros escolhida na variavel 'quantidade'
     exibirTela(sorteados);
-    //aqui o botao sortear ficará desabilitado enquanto o botao reiniciar será habilitado para que possa executar a function reiniciar()
-    document.getElementById('btn-sortear').setAttribute('disabled', 'true');
+    
+    //caso queira desativar o botao sortear enquanto o botao reiniciar será habilitado para que possa executar a function reiniciar(), é so remover o competario da linha abaixo
+    // document.getElementById('btn-sortear').setAttribute('disabled', 'true');
     document.getElementById('btn-reiniciar').removeAttribute('disabled', 'false');
     }
     
