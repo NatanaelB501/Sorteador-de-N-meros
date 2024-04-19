@@ -80,3 +80,9 @@ function reiniciar() {
     document.getElementById('btn-reiniciar').setAttribute('disabled', 'true');
     document.getElementById('btn-sortear').removeAttribute('disabled', 'false');
 }
+
+document.addEventListener('keypress', function(enter) {
+    if (enter.key === 'Enter') {
+        sortear();
+    }
+})
