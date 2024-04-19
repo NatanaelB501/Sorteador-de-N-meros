@@ -14,9 +14,13 @@ function sortear(){
     //looping para gerar os números aleatorios enquanto a variavel 'i' for menor que a 'quantidade' digitada pelo usuario
     for (let i = 0; i < quantidade; i++) {
         numero = obterNumeroAleatorio(de, ate);
-        sorteados.push(numero);
         
-       
+        //enquanto houver um número repetido sendo gerado, o gerador não vai parar de gerar ate encontrar um número não repetido dento da array 'sorteados'
+        while (sorteados.includes(numero)) {
+            numero = obterNumeroAleatorio(de, ate);
+        }
+        //aqui o número não repedito será guardado dentro da array 'sorteados'
+        sorteados.push(numero);   
     }
     // aqui vai chamar a funçao pra exibir a mensagem correta na tela dependendo a quantidade de numeros escolhida na variavel 'quantidade'
     exibirTela(sorteados);
