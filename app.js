@@ -8,11 +8,13 @@ function sortear(){
     //exibir alerta de erro caso variavel 'de' foi maior que variavel 'ate'
     if (de >= ate) {
         alert('Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!');
+        document.getElementById('quantidade').focus();
         return limparCaixas();
     
         //exibir alerda de erro caso a quantidade de numeros for menor que a possibilidade de numero aleatorios gerados
     } else if (quantidade > (ate - de + 1)) {
         alert('A "quantidade de números" é maior que a possibilidade de números sorteados');
+        document.getElementById('quantidade').focus();
         return limparCaixas();
     } else {
         
