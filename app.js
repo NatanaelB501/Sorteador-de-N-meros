@@ -29,7 +29,7 @@ function sortear(){
         //enquanto houver um número repetido sendo gerado, o gerador não vai parar de gerar ate encontrar um número não repetido dento da array 'sorteados'
         while (sorteados.includes(numero)) {
             numero = obterNumeroAleatorio(de, ate);
-            alert('Tentando obter número inédio');
+            // alert('Tentando obter número inédio');
         }
         //aqui o número não repedito será guardado dentro da array 'sorteados'
         sorteados.push(numero);   
