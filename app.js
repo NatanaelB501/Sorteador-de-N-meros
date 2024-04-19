@@ -82,13 +82,13 @@ function limparCaixas() {
     quantidade.value = '';
     de.value = '';
     ate.value = '';
+    document.getElementById('quantidade').focus();
 
 }
 
 //essa function fará com que o jogo seja reiniciado
 function reiniciar() {
     limparCaixas();
-    obterNumeroAleatorio();
     document.getElementById('btn-reiniciar').setAttribute('disabled', 'true');
     document.getElementById('btn-sortear').removeAttribute('disabled', 'false');
 }
