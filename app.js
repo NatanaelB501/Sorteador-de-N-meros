@@ -90,12 +90,23 @@ function limparCaixas() {
 function reiniciar() {
     limparCaixas();
     document.getElementById('btn-reiniciar').setAttribute('disabled', 'true');
-    document.getElementById('btn-sortear').removeAttribute('disabled', 'false');
 }
 
 //atribuindo a tecla 'ENTER' para sortear os números
+// document.addEventListener('keypress', function(enter) {
+//     if (enter.key === 'Enter') {
+//         sortear();
+//     }
+// })
+
 document.addEventListener('keypress', function(enter) {
     if (enter.key === 'Enter') {
-        sortear();
+        if (document.getElementById('btn-reiniciar').disabled) {
+            document.getElementById('btn-sortear').click();
+            
+        } else {
+            reiniciar();
+        }
     }
-})
+});
+
