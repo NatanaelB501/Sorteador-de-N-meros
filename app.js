@@ -41,10 +41,21 @@ function exibirTela(sorteados) {
     let campo = document.getElementById('resultado');
     campo.innerHTML = '<label class="texto__paragrafo">O número sorteado é: Ainda não tem número sorteado</label>';
     
+    //variavel para guardar os numeros que serão formatados mais abaixo
+    let numerosFormatados = '';
+    
+    //ordenar numero de forma crescente
+    sorteados.sort((a, b) => a - b);
+    
     if (sorteados.length === 1) {
-        campo.innerHTML = `<label class="texto__paragrafo">O número sorteado é: ${sorteados}.</label>`;
+        //Formata os números dentro de parênteses e os separa por vírgulas
+        numerosFormatados = sorteados.map(numero => `(${numero})`).join(', ');
+
+        //exibe as mensagens com os numeros formatados dentro da lista 'sorteados'
+        campo.innerHTML = `<label class="texto__paragrafo">O número sorteado é: ${numerosFormatados}.</label>`;
     } else if (sorteados.length > 1) {
-        campo.innerHTML = `<label class="texto__paragrafo">Os números sorteados são: ${sorteados}.</label>`;
+        numerosFormatados = sorteados.map(numero => `(${numero})`).join(', ');
+        campo.innerHTML = `<label class="texto__paragrafo">Os números sorteados são: ${numerosFormatados}.</label>`;
     } else {
         campo.innerHTML = `<label class="texto__paragrafo">Não há números sorteados.</label>`;
     }
