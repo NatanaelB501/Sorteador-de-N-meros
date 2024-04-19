@@ -4,13 +4,22 @@ function sortear(){
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
     console.log(quantidade, de, ate);
+    
     //exibir alerta de erro caso variavel 'de' foi maior que variavel 'ate'
     if (de >= ate) {
-        alert('O número no campo "Do número" não pode ser maior que o "Até número.')
+        alert('Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!');
+        return limparCaixas();
+    
+        //exibir alerda de erro caso a quantidade de numeros for menor que a possibilidade de numero aleatorios gerados
+    } else if (quantidade > (ate - de + 1)) {
+        alert('A "quantidade de números" é maior que a possibilidade de números sorteados');
+        return limparCaixas();
     } else {
+        
         //lista para guardar os números gerados aleatoriamente
     let sorteados = [];
     let numero;
+    
     //looping para gerar os números aleatorios enquanto a variavel 'i' for menor que a 'quantidade' digitada pelo usuario
     for (let i = 0; i < quantidade; i++) {
         numero = obterNumeroAleatorio(de, ate);
@@ -18,6 +27,7 @@ function sortear(){
         //enquanto houver um número repetido sendo gerado, o gerador não vai parar de gerar ate encontrar um número não repetido dento da array 'sorteados'
         while (sorteados.includes(numero)) {
             numero = obterNumeroAleatorio(de, ate);
+            alert('Tentando obter número inédio');
         }
         //aqui o número não repedito será guardado dentro da array 'sorteados'
         sorteados.push(numero);   
@@ -81,6 +91,7 @@ function reiniciar() {
     document.getElementById('btn-sortear').removeAttribute('disabled', 'false');
 }
 
+//atribuindo a tecla 'ENTER' para sortear os números
 document.addEventListener('keypress', function(enter) {
     if (enter.key === 'Enter') {
         sortear();
