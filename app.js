@@ -20,6 +20,7 @@ function sortear(){
     }
     // aqui vai chamar a funçao pra exibir a mensagem correta na tela dependendo a quantidade de numeros escolhida na variavel 'quantidade'
     exibirTela(sorteados);
+    //aqui o botao sortear ficará desabilitado enquanto o botao reiniciar será habilitado para que possa executar a function reiniciar()
     document.getElementById('btn-sortear').setAttribute('disabled', 'true');
     document.getElementById('btn-reiniciar').removeAttribute('disabled', 'false');
     }
@@ -45,12 +46,21 @@ function exibirTela(sorteados) {
     }
 } 
 
+//essa function vai limpar as variaveis 'quantidade', 'de' e 'ate', quando o botao 'reiniciar' for clicado
+function limparCaixas() {
+    quantidade = document.getElementById('quantidade');
+    de = document.getElementById('de');
+    ate = document.getElementById('ate');
+    quantidade.value = '';
+    de.value = '';
+    ate.value = '';
 
+}
 
-
-
-// function reiniciar() {
-//     quantidade = '';
-//     de = '';
-//     ate= '';
-// }
+//essa function fará com que o jogo seja reiniciado
+function reiniciar() {
+    limparCaixas();
+    obterNumeroAleatorio();
+    document.getElementById('btn-reiniciar').setAttribute('disabled', 'true');
+    document.getElementById('btn-sortear').removeAttribute('disabled', 'false');
+}
