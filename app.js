@@ -20,6 +20,8 @@ function sortear(){
     }
     // aqui vai chamar a funçao pra exibir a mensagem correta na tela dependendo a quantidade de numeros escolhida na variavel 'quantidade'
     exibirTela(sorteados);
+    document.getElementById('btn-sortear').setAttribute('disabled', 'true');
+    document.getElementById('btn-reiniciar').removeAttribute('disabled', 'false');
     }
     
 
@@ -41,5 +43,14 @@ function exibirTela(sorteados) {
     } else {
         campo.innerHTML = `<label class="texto__paragrafo">Não há números sorteados.</label>`;
     }
-}
+} 
 
+
+
+
+
+// function reiniciar() {
+//     quantidade = '';
+//     de = '';
+//     ate= '';
+// }
